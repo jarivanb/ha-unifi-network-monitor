@@ -322,4 +322,25 @@ GATEWAY_MODELS = {
     "UNVRPRO",
     "UCG-Ultra",
     "UCG-Max",
+    "UCGULTRA",
+    "UCGMAX",
+    "UCGFIBER",
+    "UDR",
+    "UDR7",
+    "UDRULT",
+    "UDMA6A8",
+    "UXG",
+    "UXGPRO",
+    "UXGB",
 }
+
+# Device ``type`` values that identify a gateway in stat/device, independent of model
+GATEWAY_TYPES = {"udm", "ugw", "uxg"}
+
+
+def is_gateway_device(device: Mapping[str, Any]) -> bool:
+    """Return True when a stat/device entry is the site's gateway."""
+    return (
+        device.get("model") in GATEWAY_MODELS
+        or device.get("type") in GATEWAY_TYPES
+    )
