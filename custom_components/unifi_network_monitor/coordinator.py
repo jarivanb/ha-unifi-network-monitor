@@ -70,7 +70,7 @@ from .const import (
     EVENT_NEW_ALERT,
     EVENT_NEW_ROGUE_AP,
     FETCH_STRIKE_LIMIT,
-    GATEWAY_MODELS,
+    is_gateway_device,,
     HEALTH_DRIFT_STRIKE_LIMIT,
     ROGUE_ESSID_PLACEHOLDER,
     ROGUE_HIDDEN_PREFIX,
@@ -1528,7 +1528,7 @@ class UnifiNetworkDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                     if device.get("state", 0) == 0:
                         continue  # Offline — skip
                     try:
-                        if device.get("model") in GATEWAY_MODELS:
+                        if is_gateway_device(device):
                             gateway_device = device
                             gateway_data = _parse_gateway(device, update_time, self)
                         elif device.get("is_access_point"):
