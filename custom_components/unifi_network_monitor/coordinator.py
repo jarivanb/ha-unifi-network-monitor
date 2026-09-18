@@ -70,7 +70,7 @@ from .const import (
     EVENT_NEW_ALERT,
     EVENT_NEW_ROGUE_AP,
     FETCH_STRIKE_LIMIT,
-    is_gateway_device,,
+    is_gateway_device,
     HEALTH_DRIFT_STRIKE_LIMIT,
     ROGUE_ESSID_PLACEHOLDER,
     ROGUE_HIDDEN_PREFIX,
