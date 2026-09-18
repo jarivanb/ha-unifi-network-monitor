@@ -437,10 +437,10 @@ class UnifiNetworkAPI:
         if sysinfo:
             sw_version = sysinfo[0].get("version")
 
-        from .const import GATEWAY_MODELS
+        from .const import is_gateway_device
 
         for device in devices:
-            if device.get("model") in GATEWAY_MODELS:
+            if is_gateway_device(device):
                 return {
                     "mac": device.get("mac", "").lower(),
                     "model": device.get("model", "UDM Pro"),
